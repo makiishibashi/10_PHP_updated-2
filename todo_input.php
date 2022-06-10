@@ -10,7 +10,6 @@
 <body>
   <header>家事のかんたんガイド</header>
   <form action="todo_create.php" method="POST">
-    <fieldset>
       <legend>手順入力</legend>
       <a href="todo_read.php">一覧画面</a>
       <div>
@@ -49,7 +48,6 @@
       <div>
         <button>submit</button>
       </div>
-    </fieldset>
   </form>
 
 </body>

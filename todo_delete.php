@@ -8,7 +8,8 @@ $id = $_GET['id'];
 
 $pdo = connect_to_db();
 
-$sql = 'DELETE FROM todo_table WHERE id=:id';
+$sql =
+'DELETE FROM task_steps WHERE id=:id';
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':id', $id, PDO::PARAM_STR);
 
