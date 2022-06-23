@@ -42,7 +42,7 @@ if( $val["id"] !=""){
   $_SESSION["chk_ssid"] = session_id();
   $_SESSION["u_name"] = $val['u_name'];
   //Login処理OKの場合select.phpへ遷移
-  header ("Location: todo_input.php");
+  header ("Location: todo_input _task_titles.php");
 }else{
   //login処理NGの場合login.phpへ遷移
   header("Location: login.php");

@@ -3,7 +3,7 @@ include('functions.php');
 $pdo = connect_to_db();
 
 // SQL作成&実行
-$sql = 'SELECT * FROM task_steps';
+$sql = 'SELECT * FROM task_titles';
 
 $stmt = $pdo->prepare($sql);
 
@@ -16,15 +16,15 @@ try {
   // exit();
   $output = "";
   foreach ($result as $record) {
-    $output .= "<h2>{$record["task"]}</h2>
-    <li>{$record["step01"]}
-    <a href='todo_edit.php?id={$record["id"]}'>edit</a>
-    <a href='todo_delete.php?id={$record["id"]}'>delete</a>
-    </li>";
-    
+    $output .= "
+    <div>{$record["title"]}
+    <a href='todo_edit_task_titles.php?id={$record["id"]}'>edit</a>
+    <a href='todo_delete_task_titles.php?id={$record["id"]}'>delete</a>
+    </div>
+  ";
   }
 } catch (PODException $e) {
-  echo json_encode(["sql error" => "{$e->getMessage()}"]);  
+  echo json_encode(["sql error" => "{$e->getMessage()}"]);
   exit();
 }
 
@@ -40,12 +40,12 @@ try {
 </head>
 
 <body>
-    <legend>タスク手順（一覧画面）</legend>
-    <a href="todo_input.php">入力画面</a>
-      <ol>
-        <!-- ここに<tr><td>deadline</td><td>todo</td><tr>の形でデータが入る -->
-        <?= $output ?>
-      </ol>
+  <legend>タスクリスト（一覧画面）</legend>
+  <a href="todo_input _task_titles.php">入力画面</a>
+  <div>
+    <!-- ここに<tr><td>deadline</td><td>todo</td><tr>の形でデータが入る -->
+    <?= $output ?>
+  </div>
 </body>
 
 </html>

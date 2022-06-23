@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="jp">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="css/sanitize.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
+
 <body>
     <div class="title_section">
         <div class="title_text">
@@ -19,16 +21,17 @@
     <div class="gudetama">
         <img src="img/gudetama.png" alt="">
         <form action="login_act.php" method="POST">
-        <div class="jumbotrom">
+            <div class="jumbotrom">
                 <legend>サインイン</legend>
-                <label>ユーザーID: <input type="text" name="lid" class="form-parts"></label><br>
-                <label>パスワード: <input type="text" name="lpw" class="form-parts"></label><br>
-                <input type="submit" value="ログイン" class="submit_button">            
-        </div>
-    </form>
+                <label>ユーザーID: <input type="text" placeholder="ishibashi" name="lid" class="form-parts"></label><br>
+                <label>パスワード: <input type="text" placeholder="test" name="lpw" class="form-parts"></label><br>
+                <input type="submit" value="ログイン" class="submit_button">
+            </div>
+        </form>
     </div>
-<footer>
+    <footer>
         <small>copyrights 2022 KAJI SABO All RIghts Reserved.</small>
-</footer>
+    </footer>
 </body>
+
 </html>

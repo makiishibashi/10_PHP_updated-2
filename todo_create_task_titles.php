@@ -4,26 +4,25 @@
 // POSTデータ確認
 
 if (
-  !isset($_POST['step01']) || $_POST['step01']==''
+  !isset($_POST['title']) || $_POST['title']==''
   ) {
   exit('データが足りません');
 }
 
-$step01 = $_POST['step01'];
+$title = $_POST['title'];
 
 // DB接続
 include('functions.php');
 $pdo = connect_to_db();
 
 // SQL作成&実行（誰かがフォームから入力したものを変数で受け取って、DBに突っ込んでいる。変数は$ではなくて:に変更する）
-$sql = 'INSERT INTO task_steps (id, step01, created_at, updated_at) 
-VALUES (NULL, :step01, now(), now())';
+$sql = 'INSERT INTO task_titles (id, title, created_at, updated_at) 
+VALUES (NULL, :title, now(), now())';
 
 $stmt = $pdo->prepare($sql);
 
 // バインド変数を設定
-$stmt->bindValue(':step01', $step01, PDO::PARAM_STR);
-
+$stmt->bindValue(':title', $title, PDO::PARAM_STR);//:todoに$todoの内容を代入する（数字の場合はPDO::PARAM_INT）
 
 // SQL実行（実行に失敗すると `sql error ...` が出力される）
 try {
@@ -33,6 +32,6 @@ try {
   exit();
 }
 
-header("Location:todo_read.php");
+header("Location:todo_read_task_titles.php");
 exit();
 ?>
